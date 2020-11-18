@@ -23,11 +23,11 @@ jobs:
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
-          SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_IFP3_DEV2_SERVER_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: '-rltgoDzvO --delete'
 
           SOURCE: dist # 这是要复制到阿里云静态服务器的文件夹名称
           REMOTE_HOST: '39.106.80.206' # 你的阿里云公网地址
           REMOTE_PORT: 9528
-          REMOTE_USER: sshtest # 阿里云登录后默认为 sshtest 用户，并且所在文件夹为 sshtest
+          REMOTE_USER: root # 阿里云登录后默认为 sshtest 用户，并且所在文件夹为 sshtest
           TARGET: /home/sshtest/upload # 打包后的 dist 文件夹将放在这里
